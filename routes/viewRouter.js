@@ -1,0 +1,32 @@
+const express = require('express');
+const viewsController = require('../controllers/viewsController');
+const authController = require('../controllers/authController');
+const bookingController = require('../controllers/bookingController');
+const router = express.Router();
+
+// verify if the user is logged in
+
+router.get(
+  '/',
+
+  authController.isLoggedIn,
+  viewsController.getOverview
+);
+router.get('/tour/:slug', authController.isLoggedIn, viewsController.getTour);
+router.get('/signup', authController.isLoggedIn, viewsController.getSingupForm);
+router.get('/login', authController.isLoggedIn, viewsController.getLoginForm);
+router.get('/me', authController.protect, viewsController.getAccount);
+
+router.get(
+  '/my-tours',
+  bookingController.createBookingCheckout,
+  authController.protect,
+  viewsController.getMyTours
+);
+router.post(
+  '/submit-user-data',
+  authController.protect,
+  viewsController.updateUserData
+);
+
+module.exports = router;

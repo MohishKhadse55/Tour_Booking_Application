@@ -1,5 +1,5 @@
 {
-  "name": "natours",
+  "name": "Tours_Booking_Application",
   "version": "1.0.0",
   "description": "Learning node, express,and mongodb",
   "main": "app.js",

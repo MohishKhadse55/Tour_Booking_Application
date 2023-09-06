@@ -1,1 +1,1 @@
-https://tour-booking-application-iwzi.vercel.app/
+https://tour-booking-application.vercel.app/
